@@ -9,12 +9,6 @@
 #define LEFT -1
 #define RIGHT 1
 
-#define repeat(n) _pile_repeat++;for(_cpt_repeat[_pile_repeat]=0;_cpt_repeat[_pile_repeat]<n;_cpt_repeat[_pile_repeat]++)
-#define loop _pile_repeat--
-
-int _cpt_repeat[100];
-int _pile_repeat;
-
 struct RGB {
     short red;
     short green;
@@ -22,8 +16,8 @@ struct RGB {
 };
 
 struct _coordinate {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct _coordinate_lst {
@@ -36,7 +30,7 @@ struct _coordinate_lst {
 struct _drawing {
     int height;
     int width;
-    float angle;
+    double angle;
     int nbLines;
     float anim_duration;
     struct RGB color;
@@ -50,7 +44,7 @@ struct _coordinate_lst *_movements;
 void init_drawing(int, int, float);
 void display_drawing();
 void change_color(short, short, short);
-void turn(int,int);
+void turn(double,int);
 void draw(int);
 void move(int);
 
@@ -58,7 +52,7 @@ void _init_drawing(struct _drawing *, int, int, float);
 void _draw(struct _drawing *, struct _coordinate_lst **, int);
 void _change_color(struct _drawing *,short, short, short);
 void _push(struct _coordinate_lst **, struct _coordinate, int, struct RGB);
-void _turn(struct _drawing *, int, int);
+void _turn(struct _drawing *, double, int);
 void _display_drawing(struct _drawing, struct _coordinate_lst *);
 void _move(struct _drawing *, struct _coordinate_lst **, int);
 int _getSizeOfLineFrom(struct _coordinate_lst *, int);
